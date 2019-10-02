@@ -1,0 +1,148 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SENG8040_Assignment2;
+
+using NUnit.Framework;
+
+namespace SENG8040_Trianglesolvertest
+{
+    [TestFixture]
+    public class Class1
+    {
+        [Test]
+        public void Input4_2_10_Expectedequals_Trianglenotpossible()
+        {
+            //Arrange
+            int side1 = 4;
+            int side2=  2;
+			int side3 = 10;
+            
+			
+            //Act
+            String validate= Triangle.Analyze(side1, side2, side3);
+			
+            //Assert
+            Assert.AreEqual("Triangle cannot be created", validate);
+
+        }
+        [Test]
+        public void Input7_8_9_Expectedequals_ScaleneTriangle()
+        {
+            //Arrange
+            int side1 = 7;
+            int side2=  8;
+			int side3 = 9;
+
+
+            //Act
+            String validate = Triangle.Analyze(side1, side2, side3);
+			
+            //Assert
+            Assert.AreEqual("This is a Scalene Triangle", validate);
+
+        }
+
+        [Test]
+        public void Scalenetriangle_Negative_Input2_3_5_Expectedequals_Trianglenotpossible()
+        {
+            //Arrange
+            int side1 = 2;
+            int side2 = 3;
+            int side3 = 5;
+
+
+            //Act
+            String validate = Triangle.Analyze(side1, side2, side3);
+
+            //Assert
+            Assert.AreEqual("Triangle cannot be created", validate);
+
+        }
+        [Test]
+        public void Input10_10_10_Expectedequals_EquilateralTriangle()
+        {
+            //Arrange
+            int side1 = 10;
+            int side2=  10;
+			int side3 = 10;
+
+
+            //Act
+            String str = Triangle.Analyze(side1, side2, side3);
+			
+            //Assert
+            Assert.AreEqual("This is an Equilateral Triangle", str);
+
+        }
+        [Test]
+        public void Input5_Input4_Input5_Expectedequals_IsoscelesTriangle()
+        {
+            //Arrange
+            int side1 = 5;
+            int side2=  4;
+			int side3 = 5;
+
+
+            //Act
+            String validate = Triangle.Analyze(side1, side2, side3);
+
+            //Assert
+            Assert.AreEqual("This is an Isosceles Triangle", validate);
+
+        }
+
+        [Test]
+        public void Isoscelestriangle_Negative_Input6_6_12_Expectedequals_Trianglenotpossible()
+        {
+            //Arrange
+            int side1 = 6;
+            int side2 = 6;
+            int side3 = 12;
+
+
+            //Act
+            String validate = Triangle.Analyze(side1, side2, side3);
+
+            //Assert
+            Assert.AreEqual("Triangle cannot be created", validate);
+
+        }
+
+        [Test]
+        public void Input5_Input7_Input0ExpectedequalsTrianglenotpossible()
+        {
+            //Arrange
+            int side1 = 5;
+            int side2 = 7;
+            int side3 = 0;
+
+
+            //Act
+            String validate = Triangle.Analyze(side1, side2, side3);
+
+            //Assert
+            Assert.AreEqual("Triangle cannot be created", validate);
+
+        }
+
+        [Test]
+        public void EquilateralTriangle_Negative_Inputminus5_5_5_ExpectedequalsTrianglenotpossible()
+        {
+            //Arrange
+            int side1 = -5;
+            int side2 = 5;
+            int side3 = 5;
+
+
+            //Act
+            String validate = Triangle.Analyze(side1, side2, side3);
+
+            //Assert
+            Assert.AreEqual("Triangle cannot be created", validate);
+
+        }
+    }
+}
